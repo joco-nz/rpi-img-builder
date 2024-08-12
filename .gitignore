@@ -1,0 +1,5 @@
+.cache
+*.tar.xz
+output
+*.img*
+source

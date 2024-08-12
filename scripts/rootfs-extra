@@ -56,6 +56,7 @@ if [[ "$DISTRO" == "ubuntu" ]]; then
 	if [[ "$DISTRO_VERSION" =~ ^(kinetic|lunar|mantic|noble)$ ]]; then RESOLVE="systemd-resolved"; else RESOLVE="openresolv"; fi
 	apt install -y ${PKGS} ${USER_PKGS} ${SYSMODS} ${RESOLVE} openssh-client openssh-server
 fi
+
 apt -y clean
 apt -y autoclean
 
