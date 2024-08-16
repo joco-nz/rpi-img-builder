@@ -36,11 +36,10 @@ Suites: ./
 URIs: http://download.opensuse.org/repositories/science:/EtherLab/Debian_12/
 EOT
 
-# Install companion repositories. NOTE: QTPYVCP does not support the raspberry pi.
-#echo "Install qtpyvcp repository"
-#wget -O- https://repository.qtpyvcp.com/repo/kcjengr.key | gpg --dearmor | sudo tee /usr/share/keyrings/kcjengr.gpg 2>&1 > /dev/null
-#echo 'deb [signed-by=/usr/share/keyrings/kcjengr.gpg] https://repository.qtpyvcp.com/apt develop main' | sudo tee /etc/apt/sources.list.d/kcjengr.list
-
+# Install qtpyvcp repositories
+echo "Install qtpyvcp repository"
+echo 'deb [signed-by=/usr/share/keyrings/kcjengr.gpg] https://repository.qtpyvcp.com/apt develop main' | tee /etc/apt/sources.list.d/kcjengr.list
+curl -sS https://repository.qtpyvcp.com/repo/kcjengr.key | gpg --dearmor | tee /usr/share/keyrings/kcjengr.gpg 2>&1 > /dev/null
 
 echo 'Updating apt repository list'
 echo deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/linuxcnc.gpg] https://www.linuxcnc.org/ bookworm base 2.9-uspace | tee /etc/apt/sources.list.d/linuxcnc.list > /dev/null
@@ -79,8 +78,12 @@ EOT
 
 echo 'Updating APT index'
 apt-get update
+
 echo 'Installing LinuxCNC'
 apt-get install -y linuxcnc-uspace linuxcnc-uspace-dev mesaflash
+
+echo 'Installing QTPYVCP'
+apt-get install -y python3-qtpyvcp
 
 # Finished!
 echo "Stage 2 All done installing linuxcnc!"
