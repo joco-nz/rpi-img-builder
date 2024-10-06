@@ -2,7 +2,9 @@
 MMDEBSTRAP="true"
 
 # Image Size: 3584MB 4096MB
-IMGSIZE="12288MB"
+#IMGSIZE="12288MB"
+IMGSIZE="15000MB"
+
 
 # Root Filesystem Types: ext4 btrfs xfs
 FSTYPE="ext4"

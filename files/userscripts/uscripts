@@ -85,10 +85,10 @@ apt-get install -y linuxcnc-uspace linuxcnc-uspace-dev mesaflash
 echo 'Installing QTPYVCP'
 apt-get install -y python3-qtpyvcp
 
-echo 'Installing core QTPYVCP UIs'
-apt-get install -y python3-probe-basic
-apt-get install -y python3-monokrom
-apt-get install -y python3-turbonc
+#echo 'Installing core QTPYVCP UIs'
+#apt-get install -y python3-probe-basic
+#apt-get install -y python3-monokrom
+#apt-get install -y python3-turbonc
 
 # Finished!
 echo "Stage 2 All done installing linuxcnc!"
