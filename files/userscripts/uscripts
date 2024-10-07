@@ -80,7 +80,7 @@ echo 'Updating APT index'
 apt-get update
 
 echo 'Installing LinuxCNC'
-apt-get install -y linuxcnc-uspace linuxcnc-uspace-dev mesaflash
+apt-get install -y linuxcnc-uspace linuxcnc-uspace-dev
 
 echo 'Installing QTPYVCP'
 apt-get install -y python3-qtpyvcp
@@ -90,10 +90,28 @@ apt-get install -y python3-qtpyvcp
 #apt-get install -y python3-monokrom
 #apt-get install -y python3-turbonc
 
+echo 'Installing supporting tools -- Latest mesaflash, mesaCT'
+echo 'Mesaflash'
+apt install libpci-dev libmd-dev pkg-config build-essential git
+mkdir -p /tmp/mesa
+cd /tmp/mesa
+git clone https://github.com/LinuxCNC/mesaflash.git
+cd mesaflash
+make
+make install
+
+echo 'mesaCT'
+mkdir -p /tmp/mesa/mesaCT
+cd /tmp/mesa/mesaCT
+wget https://github.com/jethornton/mesact/releases/download/2.1.7/mesact_2.1.7_arm64.deb
+gdebi mesact_2.1.7_arm64.deb
+
+
 # Finished!
 echo "Stage 2 All done installing linuxcnc!"
 cd /tmp/
 rm -rf /tmp/linuxcnc 
+rm -rf /tmp/mesa
 }
 
 run_function3 (){
