@@ -23,7 +23,7 @@ COMPRESS_IMG="1"
 USCRIPTS="1"
 USERACCT="0"
 DEVROOTFS="1"
-USER_PKGS="htop libsensors-dev xfce4 xfce4-terminal xfce4-power-manager geany firefox-esr konsole curl git gvfs-backends"
+USER_PKGS="htop libsensors-dev xfce4 xfce4-terminal xfce4-power-manager geany firefox-esr konsole curl git gvfs-backends network-manager-gnome gdebi"
 
 ### CUSTOM LINUX KERNEL
 ENABLE_COMMIT="0"
